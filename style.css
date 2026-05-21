@@ -39,7 +39,7 @@
 
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
   --shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-  
+
   --font-size: 20px;
 
   --settings-panel-bg: rgba(40, 40, 40, 0.96);
@@ -162,7 +162,7 @@ input {
 }
 
 input:focus {
-  box-shadow: 0 0 12px rgba(0, 122, 204, 0.35);
+  box-shadow: 0 0 12px var(--accent-shadow);
 }
 
 /* =========================
@@ -186,7 +186,7 @@ input:focus {
 }
 
 .btn--primary {
-  width: 64px;
+  width: 76px;
   height: 44px;
 
   flex-shrink: 0;
@@ -257,7 +257,7 @@ li {
 
   color: var(--li-text);
   background: var(--card-bg);
-  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.05);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
 
   animation: 0.4s show ease;
   transition: font-size 0.2s ease;
@@ -325,7 +325,7 @@ li.remove {
 }
 
 .checkbox-mark {
-  font-size: 26px;
+  font-size: 24px;
   opacity: 0;
   color: var(--bg);
   transition: 0.2s;
@@ -402,8 +402,8 @@ li.remove {
 }
 
 .settings__btn {
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
   border-radius: 999px;
   font-size: 24px;
 
@@ -572,44 +572,6 @@ li.remove {
 }
 
 /* =========================
-   Responsive
-========================= */
-
-@media (max-width: 360px) {
-  .todo {
-    padding: 12px;
-  }
-
-  li {
-    padding: 0 2px;
-  }
-
-  .btn--type-first {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .settings__row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .settings__select {
-    width: 100%;
-  }
-
-  .todo__title {
-    font-size: 22px;
-  }
-
-  .settings__btn {
-    width: 46px;
-    height: 46px;
-    font-size: 18px;
-  }
-}
-
-/* =========================
    Toast
 ========================= */
 .toast {
@@ -639,4 +601,28 @@ li.remove {
 
 .toast.hidden {
   display: none;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 400px) {
+  .btn--type-first {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .settings__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settings__select {
+    width: 100%;
+  }
+
+  input {
+    font-size: 12px;
+  }
 }
