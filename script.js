@@ -178,12 +178,6 @@
     const wrap = settingsBtn.closest(".settings");
     if (wrap) wrap.classList.toggle("open", isOpen);
 
-    const icon = settingsBtn.querySelector("i");
-    if (icon) {
-      icon.classList.toggle("fa-gear", !isOpen);
-      icon.classList.toggle("fa-xmark", isOpen);
-    }
-
     if (backdrop) {
       backdrop.classList.toggle("hidden", !isOpen);
       requestAnimationFrame(() => {

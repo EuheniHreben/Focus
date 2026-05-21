@@ -18,9 +18,9 @@
   --font: Arial, Helvetica, sans-serif;
 
   --container-max: 400px;
-  --radius: 12px;
+  --radius: 22px;
 
-  --t-fast: 0.2s ease-in;
+  --t-fast: 0.1s ease-in;
   --t-out: 0.2s ease-out;
 
   --bg: #222;
@@ -37,8 +37,9 @@
 
   --btn-text: #333;
 
-  --shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
-
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  --shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+  
   --font-size: 20px;
 
   --settings-panel-bg: rgba(40, 40, 40, 0.96);
@@ -110,7 +111,7 @@ body {
 
   background: var(--card-bg);
   border-radius: var(--radius);
-  border: 2px solid var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
   box-shadow: var(--shadow);
 }
 
@@ -127,8 +128,8 @@ body {
 .form {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+
+  gap: 12px;
   margin-bottom: 20px;
 }
 
@@ -137,21 +138,31 @@ body {
 }
 
 input {
-  width: 50%;
-  padding: 10px;
+  flex: 1;
 
-  border: 2px solid var(--accent);
-  border-radius: 8px;
+  height: 46px;
+
+  padding-inline: 18px;
+
+  border: 1px solid var(--accent);
+  border-radius: 14px;
 
   background: var(--settings-btn-bg);
   color: var(--text);
 
-  transition: var(--t-fast);
+  font-size: 16px;
+  line-height: 1;
+
   outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
 }
 
 input:focus {
-  box-shadow: 1px 1px 8px var(--accent);
+  box-shadow: 0 0 12px rgba(0, 122, 204, 0.35);
 }
 
 /* =========================
@@ -175,18 +186,49 @@ input:focus {
 }
 
 .btn--primary {
-  padding: 10px 30px;
-  box-shadow: 0px 4px var(--accent-shadow);
+  width: 64px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  box-shadow: 0px 3px var(--accent-shadow);
+
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    background 0.15s ease;
 }
 
 .btn--primary:active {
-  box-shadow: 0px 1px var(--accent);
+  transform: translateY(3px);
+  box-shadow: 0px 1px var(--accent-shadow);
 }
 
 .btn--remove {
   background-color: transparent;
   box-shadow: none;
   padding: 10px;
+}
+
+.btn__icon {
+  width: 22px;
+  height: 22px;
+
+  stroke-width: 2.8;
+
+  transform: translateY(1px);
+
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.2s ease;
 }
 
 /* =========================
@@ -215,7 +257,7 @@ li {
 
   color: var(--li-text);
   background: var(--card-bg);
-  box-shadow: inset 0 -1px 0 var(--border);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.05);
 
   animation: 0.4s show ease;
   transition: font-size 0.2s ease;
@@ -230,7 +272,7 @@ li:last-child {
   li:hover {
     border-radius: 10px;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     z-index: 2000;
   }
 }
@@ -273,7 +315,7 @@ li.remove {
 .custom-checkbox {
   width: 26px;
   height: 26px;
-  border: 2px solid var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -360,8 +402,8 @@ li.remove {
 }
 
 .settings__btn {
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
   border-radius: 999px;
   font-size: 24px;
 
@@ -376,18 +418,6 @@ li.remove {
 
   box-shadow: 0px 4px rgba(0, 0, 0, 0.35);
   transition: transform 0.2s ease;
-}
-
-.settings__btn i {
-  display: inline-flex;
-  justify-content: center;
-  transition:
-    transform 0.25s ease,
-    color 0.2s ease;
-}
-
-.settings.open .settings__btn i {
-  transform: rotate(180deg) scale(1.6);
 }
 
 .settings__panel {
@@ -466,45 +496,79 @@ li.remove {
   display: block;
 }
 
-.fa-xmark {
-  color: #ff3b30;
-}
-
 .icon-wrap {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
 }
 
 .icon {
   position: absolute;
   inset: 0;
 
+  width: 100%;
+  height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
+  transform-origin: center;
+
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.25s ease;
+
+  backface-visibility: hidden;
 }
 
-/* стартовое состояние */
+/* старт */
+.icon--share {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
 .icon--check {
   opacity: 0;
-  transform: scale(1.5) rotate(360deg);
+  transform: rotate(-90deg) scale(0.6);
 }
 
-/* активное состояние */
+/* активное */
 .share-success .icon--share {
   opacity: 0;
-  transform: scale(1.5) rotate(270deg);
+  transform: rotate(180deg) scale(0.6);
 }
 
 .share-success .icon--check {
   opacity: 1;
-  transform: scale(1.8) rotate(0);
+  transform: rotate(0deg) scale(1.2);
   color: #4caf50;
+}
+
+/* =========================
+   Settings icons
+========================= */
+
+.icon--settings {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.icon--xmark {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+  color: #ff3b30;
+}
+
+.settings.open .icon--settings {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.6);
+}
+
+.settings.open .icon--xmark {
+  opacity: 1;
+  transform: rotate(0deg) scale(1.2);
 }
 
 /* =========================
