@@ -108,6 +108,7 @@ body {
   width: min(400px, calc(100vw - 32px));
   min-height: 160px;
   padding: 20px;
+  padding: 30px 20px;
 
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -606,11 +607,6 @@ li.remove {
 ========================= */
 
 @media (max-width: 400px) {
-  .btn--type-first {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
   .settings__row {
     flex-direction: column;
     align-items: stretch;
@@ -621,6 +617,6 @@ li.remove {
   }
 
   input {
-    font-size: 12px;
+    font-size: 10px;
   }
 }

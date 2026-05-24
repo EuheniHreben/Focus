@@ -255,11 +255,6 @@
     checkbox.className = "checkbox-input";
     checkbox.checked = task.done;
 
-    // const mark = document.createElement("span");
-    // mark.className = "checkbox-mark";
-    // mark.textContent = "✅";
-    // mark.textContent = "✔";
-
     const mark = document.createElement("i");
     mark.className = "fa-solid fa-check checkbox-mark";
 
@@ -322,10 +317,7 @@
      Click on row
   ========================= */
     li.addEventListener("click", (e) => {
-      if (
-        e.target.closest("button") ||
-        e.target.closest(".custom-checkbox") // 👈 ключевой фикс
-      )
+      if (e.target.closest("button") || e.target.closest(".custom-checkbox"))
         return;
 
       checkbox.click();
@@ -340,16 +332,9 @@
       li.classList.add("remove");
 
       setTimeout(() => {
-        // 1️⃣ удаляем из state
         state.tasks = state.tasks.filter((t) => t.id !== task.id);
-
-        // 2️⃣ удаляем только этот элемент из DOM
         li.remove();
-
-        // 3️⃣ сохраняем
         saveToStorage();
-
-        // 4️⃣ обновляем empty
         updateEmptyState();
       }, 200);
     });
@@ -446,15 +431,12 @@
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // const value = normalizeText(input.value);
-
     const value = input.value.trim();
     const normalized = normalizeText(value);
 
     if (!value) return;
     if (isDuplicate(normalized)) return;
 
-    // 1️⃣ создаём задачу
     const newTask = {
       id: cryptoId(),
       text: value,
@@ -465,10 +447,8 @@
     state.tasks.push(newTask);
     saveToStorage();
 
-    // 2️⃣ создаём DOM
     const li = createTaskElement(newTask);
 
-    // 3️⃣ вычисляем позицию
     const sorted = [...state.tasks].sort(compareTasks);
     const newIndex = sorted.findIndex((t) => t.id === newTask.id);
 
