@@ -310,6 +310,12 @@
     /* =========================
      Checkbox toggle
   ========================= */
+    label.addEventListener("touchstart", () => {
+      if (!task.done && "vibrate" in navigator) {
+        navigator.vibrate(60);
+      }
+    });
+
     checkbox.addEventListener("change", handleToggle);
 
     /* =========================

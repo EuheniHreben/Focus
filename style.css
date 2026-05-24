@@ -496,6 +496,10 @@ li.remove {
   display: block;
 }
 
+/* =========================
+   Icons
+========================= */
+
 .icon-wrap {
   position: relative;
   width: 24px;
@@ -523,7 +527,6 @@ li.remove {
   backface-visibility: hidden;
 }
 
-/* старт */
 .icon--share {
   opacity: 1;
   transform: rotate(0deg) scale(1);
@@ -534,7 +537,6 @@ li.remove {
   transform: rotate(-90deg) scale(0.6);
 }
 
-/* активное */
 .share-success .icon--share {
   opacity: 0;
   transform: rotate(180deg) scale(0.6);
@@ -545,10 +547,6 @@ li.remove {
   transform: rotate(0deg) scale(1.2);
   color: #4caf50;
 }
-
-/* =========================
-   Settings icons
-========================= */
 
 .icon--settings {
   opacity: 1;
