@@ -26,16 +26,9 @@
   --bg: #222;
   --text: #fff;
 
-  --card-bg: #444;
   --input-bg: #333;
 
-  --accent: #ffcc00;
-  --accent-shadow: #ab8901;
-
   --border: #222;
-  --li-text: #ffcc00;
-
-  --btn-text: #333;
 
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
   --shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
@@ -47,30 +40,181 @@
 }
 
 /* =========================
-   Themes
-========================= */
+Themes
+   ========================= */
 body.light {
-  --bg: #222;
-  --card-bg: #2f2f2f;
-  --input-bg: #2a2a2a;
+  /* =========================
+     Accent
+  ========================= */
 
-  --text: #fff;
-  --li-text: #ffcc00;
+  --accent: #f7c948;
 
-  --btn-text: #222;
+  --accent-soft: #ffe082;
 
-  --settings-btn-bg: rgba(30, 30, 30, 0.95);
-  --settings-panel-bg: rgba(35, 35, 35, 0.98);
+  --accent-active: #fff0b3;
 
-  --body-bg: linear-gradient(to bottom, #3a352c, #1f1c18);
+  --accent-glow: rgba(247, 201, 72, 0.1);
+
+  --accent-glow-strong: rgba(247, 201, 72, 0.22);
+
+  --accent-shadow: rgba(247, 201, 72, 0.28);
+
+  /* =========================
+     Borders
+  ========================= */
+
+  --border-accent: rgba(247, 201, 72, 0.16);
+
+  --border-hover: rgba(247, 201, 72, 0.38);
+
+  --glass-border: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+
+  --glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+  /* =========================
+     Text
+  ========================= */
+
+  --text: #f5f1e8;
+
+  --btn-text: #121212;
+
+  /* =========================
+     Surfaces
+  ========================= */
+
+  --surface: rgba(46, 44, 48, 0.72);
+
+  --surface-gradient: linear-gradient(
+    145deg,
+    rgba(76, 74, 82, 0.72),
+    rgba(36, 34, 38, 0.82)
+  );
+
+  --input-bg: linear-gradient(
+    145deg,
+    rgba(88, 86, 92, 0.34),
+    rgba(46, 42, 48, 0.92)
+  );
+
+  --checkbox-bg: linear-gradient(
+    145deg,
+    rgba(46, 42, 48, 0.92),
+    rgba(20, 18, 24, 0.96)
+  );
+  /* =========================
+     Buttons
+  ========================= */
+
+  --btn-color: linear-gradient(180deg, #f7c948 0%, #f7c948 100%);
+
+  --btn-shadow:
+    0 8px 24px rgba(247, 201, 72, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  /* =========================
+     Shadows
+  ========================= */
+
+  --shadow-card:
+    0 0 0 1px rgba(255, 255, 255, 0.03), 0 20px 60px rgba(0, 0, 0, 0.24),
+    0 0 40px rgba(247, 201, 72, 0.08);
+
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.28);
+
+  /* =========================
+     Background
+  ========================= */
+
+  --body-bg:
+    radial-gradient(circle at top, rgba(247, 201, 72, 0.08), transparent 28%),
+    linear-gradient(135deg, #3e434d 0%, #2b3038 42%, #1c1f25 100%);
 }
 
 body.dark {
+  /* =========================
+     Accent
+  ========================= */
+
   --accent: #007acc;
-  --accent-shadow: #015c99;
-  --li-text: #66c2ff;
-  --card-bg: #2f2f2f;
-  --body-bg: linear-gradient(to bottom, #33373e, #1e2227);
+
+  --accent-active: #4db2ff;
+
+  --accent-shadow: rgba(0, 122, 204, 0.55);
+
+  --accent-glow: rgba(0, 122, 204, 0.18);
+
+  --accent-glow-strong: rgba(0, 122, 204, 0.35);
+
+  /* =========================
+     Borders
+  ========================= */
+
+  --border-accent: rgba(0, 122, 204, 0.45);
+
+  --border-hover: rgba(0, 122, 204, 0.7);
+
+  --glass-border: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  --glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.04);
+
+  /* =========================
+     Text
+  ========================= */
+
+  --text: #f5f9ff;
+
+  --btn-text: #ffffff;
+
+  /* =========================
+     Surfaces
+  ========================= */
+
+  --surface: rgba(20, 24, 32, 0.72);
+
+  --surface-gradient: linear-gradient(
+    145deg,
+    rgba(25, 30, 40, 0.95),
+    rgba(12, 15, 22, 0.92)
+  );
+
+  --input-bg: linear-gradient(
+    145deg,
+    rgba(18, 22, 30, 0.95),
+    rgba(8, 12, 18, 0.92)
+  );
+
+  --checkbox-bg: linear-gradient(
+    145deg,
+    rgba(18, 22, 30, 0.95),
+    rgba(8, 12, 18, 0.92)
+  );
+
+  /* =========================
+     Buttons
+  ========================= */
+
+  --btn-color: linear-gradient(180deg, #168bff 0%, #0066cc 100%);
+
+  --btn-shadow:
+    0 8px 24px rgba(0, 122, 204, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+
+  /* =========================
+     Shadows
+  ========================= */
+
+  --shadow-card:
+    0 0 0 1px rgba(255, 255, 255, 0.03), 0 10px 40px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(0, 122, 204, 0.18);
+
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.38);
+
+  /* =========================
+     Background
+  ========================= */
+
+  --body-bg:
+    radial-gradient(circle at top, rgba(0, 122, 204, 0.15), transparent 35%),
+    linear-gradient(135deg, #0f1115 0%, #1a1f29 45%, #11151d 100%);
 }
 
 /* =========================
@@ -107,20 +251,24 @@ body {
 .todo {
   width: min(400px, calc(100vw - 32px));
   min-height: 160px;
-  padding: 20px;
+
   padding: 30px 20px;
 
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
-  box-shadow: var(--shadow);
+  border-radius: 28px;
+
+  background: var(--surface);
+  border: 1px solid var(--border-accent);
+
+  box-shadow: var(--shadow-card);
+
+  position: relative;
 }
 
 .todo__title {
   font-size: 28px;
-  font-weight: bold;
-  margin: 0;
-  white-space: nowrap;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.2em;
+  font-weight: 500;
 }
 
 /* =========================
@@ -141,25 +289,33 @@ body {
 input {
   flex: 1;
 
-  height: 46px;
-
-  padding-inline: 18px;
-
-  border: 1px solid var(--accent);
-  border-radius: 14px;
-
-  background: var(--settings-btn-bg);
   color: var(--text);
 
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
 
   outline: none;
+  height: 50px;
+
+  padding-inline: 18px;
+
+  border-radius: 16px;
+
+  background: var(--input-bg);
+  border: 1px solid var(--border-accent);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 0 12px var(--accent-glow);
 
   transition:
     border-color 0.15s ease,
     box-shadow 0.15s ease,
     transform 0.1s ease;
+}
+
+input:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 input:focus {
@@ -177,7 +333,6 @@ input:focus {
   border-radius: 8px;
 
   background: var(--accent);
-  color: var(--btn-text);
 
   transition: var(--t-fast);
 }
@@ -188,24 +343,28 @@ input:focus {
 
 .btn--primary {
   width: 76px;
-  height: 44px;
+  height: 48px;
 
-  flex-shrink: 0;
+  border-radius: 16px;
 
-  padding: 0;
+  background: var(--btn-color);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: var(--btn-text);
 
-  border-radius: 12px;
-
-  box-shadow: 0px 3px var(--accent-shadow);
+  box-shadow:
+    0 4px 20px var(--border-accent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 
   transition:
-    transform 0.08s ease,
-    box-shadow 0.08s ease,
-    background 0.15s ease;
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--btn-shadow);
+  }
 }
 
 .btn--primary:active {
@@ -219,10 +378,42 @@ input:focus {
   padding: 10px;
 }
 
+.btn--remove {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 70, 70, 0.18);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ff5b5b;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.04),
+    0 4px 10px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn--remove:hover {
+  border-color: rgba(255, 70, 70, 0.45);
+
+  box-shadow:
+    0 0 18px rgba(255, 70, 70, 0.25),
+    0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
 .btn__icon {
   width: 22px;
   height: 22px;
-
+  color: var(--text-btn);
   stroke-width: 2.8;
 
   transform: translateY(1px);
@@ -239,6 +430,10 @@ ul {
   margin: 0;
   padding: 0;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 li {
@@ -252,16 +447,26 @@ li {
 
   gap: 10px;
   padding: 0 10px 0 16px;
+  border-radius: 18px;
 
   font-size: var(--font-size);
   cursor: pointer;
 
-  color: var(--li-text);
-  background: var(--card-bg);
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
 
-  animation: 0.4s show ease;
-  transition: font-size 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+
+  animation: 0.2s show ease;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  transition: font-size 0.4s ease;
   transition: var(--t-out);
 }
 
@@ -271,10 +476,13 @@ li:last-child {
 
 @media (hover: hover) and (pointer: fine) {
   li:hover {
-    border-radius: 10px;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    z-index: 2000;
+
+    border-color: var(--border-accent);
+
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.35),
+      0 0 18px var(--border-accent);
   }
 }
 
@@ -314,26 +522,54 @@ li.remove {
 }
 
 .custom-checkbox {
-  width: 26px;
-  height: 26px;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--border-accent);
+
+  background: var(--checkbox-bg);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   cursor: pointer;
-  transition: 0.2s;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.04),
+    0 4px 10px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.custom-checkbox:hover {
+  border-color: var(--border-hover);
+
+  box-shadow:
+    0 0 12px var(--border-accent),
+    0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
 .checkbox-mark {
   font-size: 24px;
   opacity: 0;
-  color: var(--bg);
+  color: var(--btn-text);
   transition: 0.2s;
 }
 
 .custom-checkbox:has(.checkbox-input:checked) {
-  background: var(--accent);
+  background: var(--btn-color);
+  border-color: var(--accent-active);
+  box-shadow:
+    0 0 18px var(--border-accent),
+    0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .custom-checkbox:has(.checkbox-input:checked) .checkbox-mark {
@@ -403,22 +639,39 @@ li.remove {
 }
 
 .settings__btn {
-  width: 54px;
-  height: 54px;
-  border-radius: 999px;
-  font-size: 24px;
+  width: 58px;
+  height: 58px;
 
-  border: 2px solid color-mix(in srgb, var(--accent) 80%, transparent);
-  background: var(--settings-btn-bg);
+  border-radius: 50%;
+
+  background: var(--surface-gradient);
+
+  border: 1px solid var(--border-accent);
+
   color: var(--text);
 
   cursor: pointer;
-  display: inline-flex;
+
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0px 4px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s ease;
+  box-shadow: var(--glass-highlight);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .settings__btn:hover {
+    border-color: var(--border-hover);
+
+    box-shadow:
+      var(--shadow-lg),
+      0 0 24px var(--accent-glow-strong);
+  }
 }
 
 .settings__panel {
@@ -430,10 +683,6 @@ li.remove {
   padding: 12px 20px;
 
   border-radius: 12px;
-  background: var(--settings-panel-bg);
-  border: 2px solid color-mix(in srgb, var(--accent) 80%, transparent);
-
-  box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.7);
 
   opacity: 0;
   transform: scale(0.8);
@@ -442,6 +691,14 @@ li.remove {
   transition:
     opacity 0.2s ease,
     transform 0.2s ease;
+
+  background: var(--surface);
+  border: 1px solid var(--border-accent);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 6px 20px rgba(0, 0, 0, 0.38),
+    0 0 14px var(--accent-glow);
 }
 
 .settings:not(.open) .settings__panel {
@@ -478,17 +735,23 @@ li.remove {
   cursor: pointer;
 
   border-radius: 10px;
-  border: 2px solid color-mix(in srgb, var(--accent) 80%, transparent);
 
-  background: var(--input-bg);
   color: var(--text);
+
+  background: var(--surface);
+  border: 1px solid var(--border-accent);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 6px 20px rgba(0, 0, 0, 0.28),
+    0 0 12px var(--accent-glow);
 }
 
 .backdrop {
   position: fixed;
   inset: 0;
   z-index: 15;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   display: none;
   backdrop-filter: blur(6px);
 }
