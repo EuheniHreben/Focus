@@ -306,9 +306,11 @@ input {
     transform 0.1s ease;
 }
 
-input:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 0 12px var(--accent-glow);
+@media (hover: hover) and (pointer: fine) {
+  input:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
 }
 
 input:focus {
@@ -395,12 +397,14 @@ input:focus {
     border-color 0.2s ease;
 }
 
-.btn--remove:hover {
-  border-color: rgba(255, 70, 70, 0.45);
+@media (hover: hover) and (pointer: fine) {
+  .btn--remove:hover {
+    border-color: rgba(255, 70, 70, 0.45);
 
-  box-shadow:
-    0 0 18px rgba(255, 70, 70, 0.25),
-    0 8px 18px rgba(0, 0, 0, 0.45);
+    box-shadow:
+      0 0 18px rgba(255, 70, 70, 0.25),
+      0 8px 18px rgba(0, 0, 0, 0.45);
+  }
 }
 
 .btn__icon {
@@ -542,12 +546,14 @@ li.remove {
     border-color 0.2s ease;
 }
 
-.custom-checkbox:hover {
-  border-color: var(--border-hover);
+@media (hover: hover) and (pointer: fine) {
+  .custom-checkbox:hover {
+    border-color: var(--border-hover);
 
-  box-shadow:
-    0 0 12px var(--border-accent),
-    0 6px 14px rgba(0, 0, 0, 0.4);
+    box-shadow:
+      0 0 12px var(--border-accent),
+      0 6px 14px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .checkbox-mark {
