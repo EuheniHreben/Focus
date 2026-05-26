@@ -23,16 +23,6 @@
   --t-fast: 0.1s ease-in;
   --t-out: 0.2s ease-out;
 
-  --bg: #222;
-  --text: #fff;
-
-  --input-bg: #333;
-
-  --border: #222;
-
-  --shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
-  --shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-
   --font-size: 20px;
 
   --settings-panel-bg: rgba(40, 40, 40, 0.96);
@@ -46,88 +36,83 @@ body.light {
   /* =========================
      Accent
   ========================= */
-
   --accent: #f7c948;
-
-  --accent-soft: #ffe082;
-
-  --accent-active: #fff0b3;
-
-  --accent-glow: rgba(247, 201, 72, 0.1);
-
-  --accent-glow-strong: rgba(247, 201, 72, 0.22);
-
-  --accent-shadow: rgba(247, 201, 72, 0.28);
+  --accent-soft: rgba(247, 201, 72, 0.7);
+  --accent-active: #ffe082;
+  --accent-glow: rgba(247, 201, 72, 0.08);
+  --accent-glow-strong: rgba(247, 201, 72, 0.25);
+  --accent-shadow: rgba(247, 201, 72, 0.35);
 
   /* =========================
      Borders
   ========================= */
+  --border-accent: rgba(247, 201, 72, 0.28); /* Сделали неоновую рамку ярче */
+  --border-hover: rgba(247, 201, 72, 0.55);
 
-  --border-accent: rgba(247, 201, 72, 0.16);
-
-  --border-hover: rgba(247, 201, 72, 0.38);
-
-  --glass-border: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-
-  --glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  --glass-border: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --glass-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.15);
 
   /* =========================
      Text
   ========================= */
-
   --text: #f5f1e8;
-
+  --text-muted: #a0a5b0;
   --btn-text: #121212;
 
   /* =========================
      Surfaces
   ========================= */
+  --todo-bg: linear-gradient(
+    135deg,
+    rgba(65, 70, 85, 0.04) 0%,
+    rgba(28, 31, 38, 0.6) 100%
+  );
 
-  --surface: rgba(46, 44, 48, 0.72);
+  --surface: rgba(255, 255, 255, 0.07);
 
   --surface-gradient: linear-gradient(
-    145deg,
-    rgba(76, 74, 82, 0.72),
-    rgba(36, 34, 38, 0.82)
+    135deg,
+    rgba(75, 80, 95, 0.25) 0%,
+    rgba(35, 38, 45, 0.45) 100%
   );
 
+  --panel-bg: linear-gradient(135deg, #282c36 0%, #1c1f26 100%);
+
+  /* Поля ввода */
   --input-bg: linear-gradient(
     145deg,
-    rgba(88, 86, 92, 0.34),
-    rgba(46, 42, 48, 0.92)
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(0, 0, 0, 0.25) 100%
   );
 
-  --checkbox-bg: linear-gradient(
-    145deg,
-    rgba(46, 42, 48, 0.92),
-    rgba(20, 18, 24, 0.96)
-  );
+  /* Подложка чекбокса */
+  --checkbox-bg: rgba(255, 255, 255, 0.08);
+
   /* =========================
      Buttons
   ========================= */
-
-  --btn-color: linear-gradient(180deg, #f7c948 0%, #f7c948 100%);
-
+  --btn-color: linear-gradient(180deg, #f7c948 0%, #e0b232 100%);
   --btn-shadow:
-    0 8px 24px rgba(247, 201, 72, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    0 8px 24px rgba(247, 201, 72, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 
   /* =========================
      Shadows
   ========================= */
-
   --shadow-card:
-    0 0 0 1px rgba(255, 255, 255, 0.03), 0 20px 60px rgba(0, 0, 0, 0.24),
-    0 0 40px rgba(247, 201, 72, 0.08);
-
-  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.28);
+    0 0 60px rgba(247, 201, 72, 0.08),
+    /* Золотое свечение вокруг приложения */ 0 30px 70px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.38);
 
   /* =========================
      Background
   ========================= */
-
   --body-bg:
-    radial-gradient(circle at top, rgba(247, 201, 72, 0.08), transparent 28%),
-    linear-gradient(135deg, #3e434d 0%, #2b3038 42%, #1c1f25 100%);
+    radial-gradient(
+      circle at top,
+      rgba(247, 201, 72, 0.18) 0%,
+      transparent 45%
+    ),
+    linear-gradient(135deg, #2f343d 0%, #1c1f24 60%, #111317 100%);
 }
 
 body.dark {
@@ -169,9 +154,17 @@ body.dark {
      Surfaces
   ========================= */
 
-  --surface: rgba(20, 24, 32, 0.72);
+  --todo-bg: rgba(20, 24, 32, 0.72);
+
+  --surface: rgba(255, 255, 255, 0.07);
 
   --surface-gradient: linear-gradient(
+    145deg,
+    rgba(25, 30, 40, 0.95),
+    rgba(12, 15, 22, 0.92)
+  );
+
+  --panel-bg: linear-gradient(
     145deg,
     rgba(25, 30, 40, 0.95),
     rgba(12, 15, 22, 0.92)
@@ -256,7 +249,7 @@ body {
 
   border-radius: 28px;
 
-  background: var(--surface);
+  background: var(--todo-bg);
   border: 1px solid var(--border-accent);
 
   box-shadow: var(--shadow-card);
@@ -413,7 +406,7 @@ input:focus {
 .btn__icon {
   width: 22px;
   height: 22px;
-  color: var(--text-btn);
+  color: var(--btn-text);
   stroke-width: 2.8;
 
   transform: translateY(1px);
@@ -465,9 +458,9 @@ li {
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
-    border-color 0.2s ease;
-  transition: font-size 0.4s ease;
-  transition: var(--t-out);
+    border-color 0.2s ease,
+    font-size 0.4s ease,
+    opacity 0.2s ease;
 }
 
 li:last-child {
@@ -581,9 +574,10 @@ li.remove {
 ========================= */
 .task-text {
   max-width: 100%;
-  margin: 14px auto;
+  margin: 12px auto;
 
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -617,7 +611,7 @@ li.remove {
    Settings (top-right)
 ========================= */
 .tools {
-  padding: 16px 0 26px;
+  padding: 0 0 26px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -692,7 +686,7 @@ li.remove {
     opacity 0.2s ease,
     transform 0.2s ease;
 
-  background: var(--surface);
+  background: var(--panel-bg);
   border: 1px solid var(--border-accent);
 
   box-shadow:
@@ -710,6 +704,12 @@ li.remove {
   transform: scale(1);
   pointer-events: auto;
   visibility: visible;
+}
+
+.settings__select option {
+  background-color: #1c1f26;
+  color: #f5f1e8;
+  padding: 10px;
 }
 
 .settings__row {
@@ -852,8 +852,10 @@ li.remove {
   font-size: 14px;
   pointer-events: none;
 
-  transition: all 0.25s ease;
   z-index: 9999;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .toast.show {
