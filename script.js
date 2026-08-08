@@ -25,6 +25,7 @@
   const backdrop = document.getElementById("backdrop");
   const fontSelect = document.getElementById("fontSelect");
   const soundToggle = document.getElementById("soundToggle");
+  const alignSelect = document.getElementById("alignSelect");
 
   if (!input || !list || !clearChecksBtn || !form) return;
 
@@ -78,6 +79,57 @@
     return state.tasks.some((t) => normalizeText(t.text) === normalized);
   }
 
+  const DEFAULT_TASKS = [
+    {
+      id: cryptoId(),
+      text: "Попробуй добавить новую задачу ➕",
+      done: false,
+      createdAt: Date.now(),
+    },
+    {
+      id: cryptoId(),
+      text: "Отметь задачу чекбоксом ✔",
+      done: false,
+      createdAt: Date.now() + 1,
+    },
+    {
+      id: cryptoId(),
+      text: "Чекбоксы тоже умеют звучать 🔊",
+      done: false,
+      createdAt: Date.now() + 2,
+    },
+    {
+      id: cryptoId(),
+      text: "Нажми на задачу чтобы редактировать ✏️",
+      done: false,
+      createdAt: Date.now() + 3,
+    },
+    {
+      id: cryptoId(),
+      text: "Тема и сортировка живут в настройках ⚙️",
+      done: false,
+      createdAt: Date.now() + 4,
+    },
+    {
+      id: cryptoId(),
+      text: "Кнопка ↺ снимает все галочки сразу",
+      done: true,
+      createdAt: Date.now() + 5,
+    },
+    {
+      id: cryptoId(),
+      text: "Share копирует список в буфер 📋",
+      done: true,
+      createdAt: Date.now() + 6,
+    },
+    {
+      id: cryptoId(),
+      text: "Удали задачу с помощью ❌",
+      done: true,
+      createdAt: Date.now() + 7,
+    },
+  ];
+
   /* =========================
        Sound
   ========================= */
@@ -103,8 +155,9 @@
       sort: raw.sort === "alpha" ? "alpha" : "added",
       fontSize: ["16", "20", "24"].includes(String(raw.fontSize))
         ? String(raw.fontSize)
-        : "20",
+        : "16",
       sound: raw.sound === "off" ? "off" : "on",
+      align: raw.align === "center" ? "center" : "left",
     };
   };
 
@@ -116,6 +169,13 @@
 
   function applyFontSize(size) {
     document.documentElement.style.setProperty("--font-size", size + "px");
+  }
+
+  function applyTextAlign(align) {
+    document.documentElement.style.setProperty(
+      "--task-align",
+      align === "center" ? "center" : "left",
+    );
   }
 
   let prefs = readPrefs();
@@ -162,8 +222,12 @@
 
   function loadFromStorage() {
     const saved = safeParse(localStorage.getItem(STORAGE_KEY));
+
     if (Array.isArray(saved)) {
       state.tasks = saved;
+    } else {
+      state.tasks = [...DEFAULT_TASKS];
+      saveToStorage();
     }
   }
 
@@ -434,7 +498,10 @@
     const value = input.value.trim();
     const normalized = normalizeText(value);
 
-    if (!value) return;
+    if (!value) {
+      input.focus();
+      return;
+    }
     if (isDuplicate(normalized)) return;
 
     const newTask = {
@@ -496,6 +563,13 @@
     writePrefs(prefs);
   });
 
+  alignSelect?.addEventListener("change", () => {
+    prefs.align = alignSelect.value;
+    writePrefs(prefs);
+    applyTextAlign(prefs.align);
+    setPanelOpen(false);
+  });
+
   shareBtn?.addEventListener("click", copyTasks);
 
   window.addEventListener("DOMContentLoaded", () => {
@@ -505,10 +579,12 @@
 
     applyTheme(prefs.theme);
     applyFontSize(prefs.fontSize);
+    applyTextAlign(prefs.align);
 
     if (themeSelect) themeSelect.value = prefs.theme;
     if (sortSelect) sortSelect.value = prefs.sort;
     if (fontSelect) fontSelect.value = prefs.fontSize;
     if (soundToggle) soundToggle.value = prefs.sound;
+    if (alignSelect) alignSelect.value = prefs.align;
   });
 })();
