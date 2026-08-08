@@ -25,6 +25,8 @@
 
   --font-size: 20px;
 
+  --task-align: left;
+
   --settings-panel-bg: rgba(40, 40, 40, 0.96);
   --settings-btn-bg: #1a1a1a;
 }
@@ -242,7 +244,7 @@ body {
    Todo Card
 ========================= */
 .todo {
-  width: min(400px, calc(100vw - 32px));
+  width: min(500px, calc(100vw - 32px));
   min-height: 160px;
 
   padding: 30px 20px;
@@ -440,7 +442,7 @@ li {
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 
   gap: 10px;
   padding: 0 10px 0 16px;
@@ -579,8 +581,8 @@ li.remove {
    Task text
 ========================= */
 .task-text {
-  max-width: 100%;
-  margin: 12px auto;
+  flex: 1;
+  margin: 12px 0;
 
   white-space: normal;
   word-break: break-word;
@@ -589,6 +591,8 @@ li.remove {
 
   color: var(--text);
   user-select: none;
+
+  text-align: var(--task-align);
 }
 
 .done .task-text {
