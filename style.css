@@ -598,8 +598,6 @@ li.remove {
 .done .task-text {
   text-decoration: line-through;
   opacity: 0.6;
-  transform: scale(0.8);
-  transform-origin: left center;
   color: gray;
 }
 
