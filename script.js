@@ -42,7 +42,7 @@
     emptyState = document.createElement("p");
     emptyState.id = "emptyState";
     emptyState.className = "empty-state hidden";
-    emptyState.textContent = "Пока пусто... Добавь первую задачу ➕";
+    emptyState.textContent = "No tasks yet... Add your first task ➕";
     list.after(emptyState);
   }
 
@@ -82,65 +82,61 @@
   const DEFAULT_TASKS = [
     {
       id: cryptoId(),
-      text: "Попробуй добавить новую задачу ➕",
+      text: "Try adding a new task ➕",
       done: false,
       createdAt: Date.now(),
     },
     {
       id: cryptoId(),
-      text: "Отметь задачу чекбоксом ✔",
+      text: "Check off a task ✔",
       done: false,
       createdAt: Date.now() + 1,
     },
     {
       id: cryptoId(),
-      text: "Чекбоксы тоже умеют звучать 🔊",
+      text: "Checkboxes can make a sound too 🔊",
       done: false,
       createdAt: Date.now() + 2,
     },
     {
       id: cryptoId(),
-      text: "Нажми на задачу чтобы редактировать ✏️",
-      done: false,
-      createdAt: Date.now() + 3,
-    },
-    {
-      id: cryptoId(),
-      text: "Тема и сортировка живут в настройках ⚙️",
+      text: "Theme and sorting are in Settings ⚙️",
       done: false,
       createdAt: Date.now() + 4,
     },
     {
       id: cryptoId(),
-      text: "Кнопка ↺ снимает все галочки сразу",
+      text: "The ↺ button clears all checkmarks",
       done: true,
       createdAt: Date.now() + 5,
     },
     {
       id: cryptoId(),
-      text: "Share копирует список в буфер 📋",
+      text: "Share copies your task list 📋",
       done: true,
       createdAt: Date.now() + 6,
     },
     {
       id: cryptoId(),
-      text: "Удали задачу с помощью ❌",
+      text: "Delete a task using ❌",
       done: true,
       createdAt: Date.now() + 7,
     },
   ];
-
   /* =========================
        Sound
   ========================= */
   const sound = new Audio("./sounds/check.wav");
+
+  sound.preload = "auto";
   sound.volume = 0.25;
+  sound.load();
 
   function playCheckSound() {
     if (prefs.sound === "off") return;
 
     sound.currentTime = 0;
-    sound.play();
+    sound.play().catch(() => {});
   }
 
   /* =========================
@@ -251,7 +247,7 @@
 
     settingsBtn.setAttribute(
       "aria-label",
-      isOpen ? "Закрыть настройки" : "Открыть настройки",
+      isOpen ? "Close settings" : "Open settings",
     );
   }
 
@@ -334,7 +330,7 @@
     del.textContent = "❌";
 
     /* =========================
-     TOGGLE LOGIC (единая)
+     TOGGLE LOGIC
   ========================= */
     function handleToggle() {
       playCheckSound();
@@ -419,14 +415,14 @@
      Sharing
   ========================= */
   function formatTasksForShare(tasks) {
-    if (!tasks.length) return "Список пуст";
+    if (!tasks.length) return "No tasks";
 
     const lines = tasks.map((task) => {
       const mark = task.done ? "☑" : "☐";
       return `${mark} ${task.text}`;
     });
 
-    return `📝 Список задач:\n\n${lines.join("\n")}`;
+    return `📝 Task list:\n\n${lines.join("\n")}`;
   }
 
   async function copyTasks() {
@@ -435,17 +431,19 @@
 
     try {
       await navigator.clipboard.writeText(text);
+
       if (!isMobile()) {
-        showToast("✔ Скопировано в буфер");
+        showToast("✔ Copied to clipboard");
       }
+
       animateShareButton();
     } catch (err) {
       console.error(err);
 
       if (!isMobile()) {
-        prompt("Скопируй список:", text);
+        prompt("Copy your task list:", text);
       } else {
-        showToast("❌ Не удалось скопировать");
+        showToast("❌ Failed to copy");
       }
     }
   }

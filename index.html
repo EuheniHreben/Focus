@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>ToDo</title>
+    <title>Focus</title>
   </head>
   <body class="dark">
     <div id="backdrop" class="backdrop hidden" aria-hidden="true"></div>
@@ -25,7 +25,7 @@
             id="shareBtn"
             class="btn settings__btn"
             type="button"
-            aria-label="Скопировать в буфер"
+            aria-label="Copy to clipboard"
           >
             <span class="icon-wrap">
               <svg
@@ -61,12 +61,12 @@
           </button>
         </div>
         <div class="todo__title">FOCUS</div>
-        <div class="settings" aria-label="Настройки">
+        <div class="settings" aria-label="Settings">
           <button
             id="settingsBtn"
             class="btn settings__btn"
             type="button"
-            aria-label="Открыть настройки"
+            aria-label="Open settings"
             aria-haspopup="dialog"
             aria-expanded="false"
           >
@@ -111,48 +111,48 @@
             id="settingsPanel"
             class="settings__panel"
             role="dialog"
-            aria-label="Настройки приложения"
+            aria-label="App settings"
           >
             <div class="settings__row">
-              <label for="themeSelect" class="settings__label">Тема</label>
+              <label for="themeSelect" class="settings__label">Theme</label>
               <select id="themeSelect" class="settings__select">
-                <option value="time">По времени</option>
-                <option value="system">Система</option>
-                <option value="dark">Тёмная</option>
-                <option value="light">Светлая</option>
+                <option value="time">By time</option>
+                <option value="system">System</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
               </select>
             </div>
+
             <div class="settings__row">
-              <label for="sortSelect" class="settings__label">Сортировка</label>
+              <label for="sortSelect" class="settings__label">Sort</label>
               <select id="sortSelect" class="settings__select">
-                <option value="added">По порядку добавления</option>
-                <option value="alpha">По алфавиту</option>
+                <option value="added">By date added</option>
+                <option value="alpha">Alphabetical</option>
               </select>
             </div>
+
             <div class="settings__row">
-              <label for="fontSelect" class="settings__label"
-                >Размер шрифта</label
-              >
+              <label for="fontSelect" class="settings__label">Font size</label>
               <select id="fontSelect" class="settings__select">
-                <option value="16">Мелкий</option>
-                <option value="20">Средний</option>
-                <option value="24">Большой</option>
+                <option value="16">Small</option>
+                <option value="20">Medium</option>
+                <option value="24">Large</option>
               </select>
             </div>
+
             <div class="settings__row">
-              <label class="settings__label">Звук</label>
-              <select id="soundToggle" class="settings__select">
-                <option value="on">Вкл</option>
-                <option value="off">Выкл</option>
-              </select>
-            </div>
-            <div class="settings__row">
-              <label for="alignSelect" class="settings__label"
-                >Выравнивание</label
-              >
+              <label for="alignSelect" class="settings__label">Alignment</label>
               <select id="alignSelect" class="settings__select">
-                <option value="left">По левому краю</option>
-                <option value="center">По центру</option>
+                <option value="left">Left</option>
+                <option value="center">Center</option>
+              </select>
+            </div>
+
+            <div class="settings__row">
+              <label class="settings__label">Sound</label>
+              <select id="soundToggle" class="settings__select">
+                <option value="on">On</option>
+                <option value="off">Off</option>
               </select>
             </div>
           </div>
@@ -163,7 +163,7 @@
           id="clearChecksBtn"
           class="btn btn--primary"
           type="button"
-          aria-label="Сбросить отметки"
+          aria-label="Clear completed tasks"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -181,13 +181,13 @@
           </svg>
         </button>
 
-        <input type="text" id="taskInput" placeholder="Добавить задачу..." />
+        <input type="text" id="taskInput" placeholder="Add a task..." />
 
         <button
           id="addBtn"
           class="btn btn--primary"
           type="submit"
-          aria-label="Добавить задачу"
+          aria-label="Add task"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -205,9 +205,10 @@
           </svg>
         </button>
       </form>
-      <ul id="taskList" class="list" aria-label="Список задач"></ul>
+      <ul id="taskList" class="list" aria-label="Task list"></ul>
+
       <p id="emptyState" class="empty-state hidden">
-        Список пуст... Добавь первую задачу ➕
+        No tasks yet... Add your first task ➕
       </p>
     </div>
 
