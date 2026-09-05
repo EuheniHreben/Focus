@@ -584,5 +584,14 @@
     if (fontSelect) fontSelect.value = prefs.fontSize;
     if (soundToggle) soundToggle.value = prefs.sound;
     if (alignSelect) alignSelect.value = prefs.align;
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .then((reg) => console.log("Успешно подключено!", reg))
+          .catch((err) => console.log("Ошибка подключения sw:", err));
+      });
+    }
   });
 })();
