@@ -1,0 +1,16 @@
+{
+  "short_name": "2 минуты",
+  "name": "2 минуты app",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "type": "image/png",
+      "sizes": "501x501"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#121214",
+  "theme_color": "#121214",
+  "display": "standalone",
+  "orientation": "portrait"
+}
